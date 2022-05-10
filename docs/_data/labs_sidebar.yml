@@ -1,0 +1,17 @@
+docs_list_title: labs_sidebar
+docs:
+  
+- title: Running on AWS F1
+  url: running_on_F1.html
+  
+- title: TensorFlow Inception v1
+  url: tf_inceptionv1.html
+
+- title: TensorFlow2 Inception v3
+  url: tf2_inceptionv3.html
+
+- title: PyTorch MNIST
+  url: pt_mnist.html
+  
+- title: Caffe Inception v1
+  url: cf_inceptionv1.html
