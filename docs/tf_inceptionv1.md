@@ -127,7 +127,7 @@ where the arguments are:
 |  --eval_image_path    | Location to the evaluation images directory              |
 |    --calib_iter       | Number of images on which to calibrate                        |
 
-The `calib_iter` will have impact on the quality of results. Smaller the number poorer will be the probabilities.
+The `calib_iter` will have impact on the quality of results. The smaller the number, the poorer the probabilities will be.
 
 By default, the quantization result (quantized model `quantize_eval_model.pb`) will be saved to `quantize_results` directory under the current directory.
 

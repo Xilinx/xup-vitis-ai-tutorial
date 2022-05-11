@@ -109,7 +109,7 @@ cd /workspace/09-mnist_pyt/files/build/target_aws
 /usr/bin/python3 app_mt.py -m CNN_aws.xmodel
 ```
 
-The application will be run on the F1 hardware and you should see the output similar to shown below.
+The application will be run on the F1 hardware and you should see the output similar to whats shown below.
 
 ![](images/pt_mnist/run_output.png)
 
