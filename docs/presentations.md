@@ -8,7 +8,7 @@ layout: default
 
 | Title | YouTube Link | PDF Link |
 | --- | --- | ---- |
-| Vitis AI Introduction | [![alt text](assets/images/youtube.png) Vitis AI Introduction]() | [![alt text](images/pdf.png)]() |
+| Vitis AI Introduction | [![alt text](assets/images/youtube.png) Vitis AI Introduction]() | [![alt text](images/pdf.png)](https://www.xilinx.com/products/design-tools/vitis/vitis-ai.html) |
 | Supported ML Frameworks | [![alt text](assets/images/youtube.png) Supported ML Frameworks]() | [![alt text](images/pdf.png)]() |
 | Deep Learning Processor Unit | [![alt text](assets/images/youtube.png) Deep Learning Processor Unit]() | [![alt text](images/pdf.png)]() |
 | Vitis AI Optimizer | [![alt text](assets/images/youtube.png) Vitis AI Optimizer]() | [![alt text](images/pdf.png)]() |
