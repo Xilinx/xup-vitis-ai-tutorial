@@ -1,0 +1,9 @@
+docs_list_title: setup_sidebar
+docs:
+  
+- title: XUP Workshop
+  url: xup_aws_workshop.html
+
+- title: Setup Vitis AI on F1
+  url: setup_vitisai_awsf1.html
+  
