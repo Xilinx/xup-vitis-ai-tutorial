@@ -1,6 +1,6 @@
 # Xilinx University Program Vitis AI Tutorial
 
-View this repository on GitHub pages: [TBA](https://xupgit.github.io/xup-vitis-ai-tutorial/)
+View this repository on GitHub pages: [https://xilinx.github.io/xup-vitis-ai-tutorial/](https://xilinx.github.io/xup-vitis-ai-tutorial/)
 
 ## Tools Versions
 
