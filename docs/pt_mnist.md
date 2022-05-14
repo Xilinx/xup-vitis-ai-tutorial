@@ -88,8 +88,7 @@ Note that the shell script will go through three stages of training (Epoch): wri
 Open another terminal window and Launch Docker Container.
 
 ```sh
-cd
-cd Vitis-AI_1_4_1
+cd /home/ubuntu/Vitis-AI_1_4_1
 ./docker_run.sh xilinx/vitis-ai-cpu:1.4.1.978
 ```
 

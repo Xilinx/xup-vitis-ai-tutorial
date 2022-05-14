@@ -69,8 +69,8 @@ Note `1` is for the board independent source files, `7` is for the U200 specific
 Type `1` and hit Enter to download the zip file (tf_inceptionv1_imagenet_224_224_3G_1.4.zip). Move the downloaded zip file in the `tf_inception_v1` example directory. Extract the downloaded file to get  the `inception_v1_tf` directory and associated files.
 
 ```sh
-mv tf_inceptionv1_imagenet_224_224_3G_1.4.zip /workspace/examples/DPUCADF8H/tf_inception_v1/.
-cd /workspace/examples/DPUCADF8H/tf_inception_v1/.
+mv tf_inceptionv1_imagenet_224_224_3G_1.4.zip /workspace/examples/DPUCADF8H/tf_inception_v1/
+cd /workspace/examples/DPUCADF8H/tf_inception_v1/
 unzip tf_inceptionv1_imagenet_224_224_3G_1.4.zip
 ```
 

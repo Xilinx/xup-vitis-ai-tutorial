@@ -74,9 +74,9 @@ Edit the following two files to set the directory path, change the quantizer nam
 
 1. `gedit code/test/quantize.sh`
 
-Change line 17 from `caffe_xilinx_dir=../../../caffe-xilinx/` to `caffe_xilinx_dir=../../../../../../models/AI-Model-Zoo/caffe-xilinx/`.
+In line 17, replace `caffe_xilinx_dir=../../../caffe-xilinx/` with `caffe_xilinx_dir=../../../../../../models/AI-Model-Zoo/caffe-xilinx/`
 
-Change line 22 from `$caffe_xilinx_dir/build/tools/vai_q` to `vai_q_caffe` and `--calib_iter 64` to `--calib_iter 16`. Changing `calib_iter` value from *64* to *16* speeds up quantization process.
+In line 22, replace `$caffe_xilinx_dir/build/tools/vai_q` with `vai_q_caffe` and `--calib_iter 64` with `--calib_iter 16`. Changing `calib_iter` value from *64* to *16* speeds up quantization process.
 
 The changes should look like:
 ![](images/cf_inceptionv1/updated_quantize_sh.png)
@@ -85,13 +85,13 @@ Save the changes and close the file.
 
 2. `gedit float/quantize.prototxt`
 
-Change line 10 from `../../data/quantize/quant.txt` to `../../image/val.txt`.
+Change line 10 from `../../data/quantize/quant.txt` to `../../image/val.txt`
 
-Insert after line 10 (source:…) `root_folder: "../../image/"`.
+Insert after line 10 (source:…) `root_folder: "../../image/"`
 
-Change line 34 from `../../data/quantize/quant.txt` to `../../image/val.txt`.
+Change line 34 from `../../data/quantize/quant.txt` to `../../image/val.txt`
 
-Insert after line 34 (source:…) `root_folder: "../../image/"`.
+Insert after line 34 (source:…) `root_folder: "../../image/"`
 
 Save the changes and close the file.
 
@@ -102,8 +102,7 @@ Save the changes and close the file.
 Open another terminal window and Launch Docker Container.
 
 ```sh
-cd
-cd Vitis-AI_1_4_1
+cd /home/ubuntu/Vitis-AI_1_4_1
 ./docker_run.sh xilinx/vitis-ai-cpu:1.4.1.978
 ```
 The docker shell will start showing the following:
@@ -133,7 +132,7 @@ python -m ck pull repo:ck-env
 python -m ck install package:imagenet-2012-val-min
 python -m ck install package:imagenet-2012-aux --tags=from.berkeley
 head -n 500 ~/CK-TOOLS/dataset-imagenet-ilsvrc2012-aux-from.berkeley/val.txt > ./image/val.txt
-cp ~/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min/*.JPEG image/.
+cp ~/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min/*.JPEG image/
 ```
 
 ### Quantize the Model
@@ -151,7 +150,7 @@ source quantize.sh
 
 The following command will be executed:
 
-```sh
+```
 vai_q_caffe quantize --model $MODEL_PATH --weights $WEIGHT_PATH --keep_fixed_neuron --calib_iter 16
 ```
 
