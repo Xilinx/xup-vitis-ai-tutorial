@@ -14,6 +14,7 @@ You can download model files (board specific pre-compiled or board independent s
 
 Execute the following commands to download the U200 specific pre-compiled files:
 
+{% include codeHeader.html %}
 ```sh
 cd
 cd Vitis-AI_1_4_1/models/AI-Model-Zoo/
@@ -30,13 +31,16 @@ Type **tf inceptionv1** and hit Enter. The available selections will be displaye
 Note `1` is for the board independent source files, `7` is for the U200 specific compiled files, `2` to `6` are for the other boards specific options.
 
 Type **7** and hit Enter to download the tar file (inception_v1_tf-u200-u250-r1.4.0.tar.gz). Extract the downloaded file to get `inception_v1_tf` directory and associated files.
-```
+
+{% include codeHeader.html %}
+```sh
 tar -xvf inception_v1_tf-u200-u250-r1.4.0.tar.gz
 ```
 
 ## Launch Docker Container
 Start the docker image by executing the following commands:
 
+{% include codeHeader.html %}
 ```sh
 cd
 cd Vitis-AI_1_4_1
@@ -49,6 +53,7 @@ Hit the enter key six times until you see a message to agree to the terms. Press
 
 Activate conda for TensorFlow.
 
+{% include codeHeader.html %}
 ```sh
 conda activate vitis-ai-tensorflow
 ```
@@ -62,6 +67,7 @@ Note that `/workspace` of docker image maps to the `/home/ubuntu/Vitis-AI_1_4_1`
 
 Change the directory to go to the untared directory.
 
+{% include codeHeader.html %}
 ```sh
 cd ./models/AI-Model-Zoo/inception_v1_tf
 ```
@@ -74,6 +80,7 @@ The `inception_v1_tf.xmodel` is the compiled model for the *DPUCADF8H* DPU.
 
 Copy the necessary source files directory (`src`), a shell script to build the project (`build.sh`), and `words.txt` which describes various objects labels from the example directory provided as part of the repository. Finally, build the project.
 
+{% include codeHeader.html %}
 ```sh
 cp -r ../../../examples/DPUCADF8H/tf_inception_v1/* .
 ./build.sh
@@ -84,6 +91,7 @@ The `build.sh` script will compile the source files and generate the `inception_
 Download a minimal validation set for [Imagenet2012](http://www.image-net.org/challenges/LSVRC/2012) using [Collective Knowledge (CK)](https://github.com/ctuning) by executing the following commands:
 > **Note:** User is responsible for the use of the downloaded content and compliance with any copyright licenses.
 
+{% include codeHeader.html %}
 ```sh
 mkdir image
 python -m ck pull repo:ck-env
@@ -96,6 +104,7 @@ Note that `~` is the home directory of the docker image which maps to `/home/vit
 
 Source the DPU xclbin.
 
+{% include codeHeader.html %}
 ```sh
 source /workspace/setup/alveo/setup.sh DPUCADF8H
 ```
@@ -109,6 +118,7 @@ XLNX_VART_FIRMWARE = /opt/xilinx/overlaybins/DPUCADF8H/dpu-aws.xclbin
 
 Run the `inception_example` application with the compiled model and the validation set by executing the following command:
 
+{% include codeHeader.html %}
 ```sh
 ./inception_example  inception_v1_tf.xmodel ./image
 ```
