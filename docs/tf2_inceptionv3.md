@@ -106,7 +106,6 @@ tf2_inceptionv3_imagenet_299_299_11.5G_1.4
 │   └── quantized.h5
 ├── readme.md
 └── requirements.txt
-
 ```
 
 ### Quantize the Model
@@ -122,9 +121,9 @@ The quantizer will generate scaling parameters for quantizing `float` to `INT8`.
 Execute the following commands which changes to the working (model) directory, creates an output directory (`via_q_output`), invokes Python to quantize the model with several input parameters.
 
 ```sh
-  cd tf2_inceptionv3_imagenet_299_299_11.5G_1.4
-  mkdir vai_q_output
-  python ./code/com/train_eval_h5.py --model ./float/inception_v3_weights_tf.h5 --quantize=true --quantize_output_dir=./vai_q_output --eval_only=true --eval_images=true --eval_image_path=/home/vitis-ai-user/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min/ --eval_image_list=/home/vitis-ai-user/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min/val.txt --label_offset=1 --gpus=0
+cd tf2_inceptionv3_imagenet_299_299_11.5G_1.4
+mkdir vai_q_output
+python ./code/com/train_eval_h5.py --model ./float/inception_v3_weights_tf.h5 --quantize=true --quantize_output_dir=./vai_q_output --eval_only=true --eval_images=true --eval_image_path=/home/vitis-ai-user/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min/ --eval_image_list=/home/vitis-ai-user/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min/val.txt --label_offset=1 --gpus=0
 ```
 
 | Quantizer Arguments   |                          Description                     |
@@ -137,7 +136,7 @@ Execute the following commands which changes to the working (model) directory, c
 |  --eval_image_path    | Location to the evaluation images directory              |
 |  --eval_image_list    | Images list                                              |
 |   --label_offset      | Set to 1                                                 |
-|      --gpus           | Set to 0 for CPU, set to 1 for GPU                       |          
+|      --gpus           | Set to 0 for CPU, set to 1 for GPU                       |
 
 This will take about 6 minutes. By default, the quantization result `quantized.h5` will be saved to `vai_q_output` directory under the current directory.
 
