@@ -16,8 +16,7 @@ Execute the following commands to download the U200 specific pre-compiled files:
 
 {% include codeHeader.html %}
 ```sh
-cd
-cd Vitis-AI_1_4_1/models/AI-Model-Zoo/
+cd /home/ubuntu/Vitis-AI_1_4_1/models/AI-Model-Zoo/
 python3 downloader.py
 ```
 You will see output like:
@@ -42,8 +41,7 @@ Start the docker image by executing the following commands:
 
 {% include codeHeader.html %}
 ```sh
-cd
-cd Vitis-AI_1_4_1
+cd /home/ubuntu/Vitis-AI_1_4_1
 ./docker_run.sh xilinx/vitis-ai-cpu:1.4.1.978
 ```
 
@@ -98,7 +96,7 @@ python -m ck pull repo:ck-env
 python -m ck install package:imagenet-2012-val-min
 python -m ck install package:imagenet-2012-aux --tags=from.berkeley
 head -n 500 ~/CK-TOOLS/dataset-imagenet-ilsvrc2012-aux-from.berkeley/val.txt > ./image/val.txt
-cp ~/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min/*.JPEG image/.
+cp ~/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min/*.JPEG image/
 ```
 Note that `~` is the home directory of the docker image which maps to `/home/vitis-ai-user/`.
 

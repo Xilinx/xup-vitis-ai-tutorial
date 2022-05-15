@@ -24,7 +24,7 @@ When reporting an issue provide the following information.
     - `lsb_release -a`
 
 
-Report the issue to your instructor or open a [new issue](https://github.com/xupgit/xup-vitis-ai-tutorial/issues).
+Report the issue to your instructor or open a [new issue](https://github.com/Xilinx/xup-vitis-ai-tutorial/issues).
 It is always a good idea to check previous issues to in case that it has been already resolved.
 
 ---------------------------------------
