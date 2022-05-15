@@ -157,7 +157,8 @@ source quantize.sh
 
 The following command will be executed:
 
-```
+{% include codeHeader.html %}
+```sh
 vai_q_caffe quantize --model $MODEL_PATH --weights $WEIGHT_PATH --keep_fixed_neuron --calib_iter 16
 ```
 
@@ -186,7 +187,8 @@ In this step, the network graph, xmodel file, `inceptionv1.xmodel` along with `m
 
 Execute the following command which invokes `vai_c_caffe` compiler with several input parameters.
 
-```
+{% include codeHeader.html %}
+```sh
 vai_c_caffe -p quantize_results/deploy.prototxt -c quantize_results/deploy.caffemodel -a /opt/vitis_ai/compiler/arch/DPUCADF8H/U200/arch.json -o vai_c_output_AWS -n inceptionv1 --options '{"input_shape":"4,3,224,224"}'
 ```    
 

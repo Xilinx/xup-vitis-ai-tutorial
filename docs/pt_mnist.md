@@ -17,6 +17,7 @@ git clone https://github.com/Xilinx/Vitis-AI-Tutorials.git
 cp -r Vitis-AI-Tutorials/Design_Tutorials/09-mnist_pyt/ Vitis-AI_1_4_1/.
 cd Vitis-AI_1_4_1/09-mnist_pyt/files
 ```
+
 ## Edit run_all.sh
 
 Edit `run_all.sh` to define AWS F1 as the target machine on which the application will run. Remove all lines in the `compile` section and then add
@@ -51,6 +52,7 @@ Add `aws` after `u50` as shown in the figure below:
 
 Edit the `target.py` file to pass the `aws` as the target architecture and board. Modify line 101 to match the following:
 
+{% include codeHeader.html %}
 ```python
 ap.add_argument('-t', '--target',     type=str,  default='aws', choices=['aws'], help='Target board type (aws). Default is aws')
 ```

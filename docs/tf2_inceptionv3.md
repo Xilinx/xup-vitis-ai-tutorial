@@ -154,7 +154,8 @@ In this step, the network graph, xmodel file, `inception_v3_tf2.xmodel` will be 
 
 Execute the following command which invokes `vai_c_tensorflow2` compiler with several input parameters. Note the extra option is used to tell the compiler to use batch size of 4 and the image size of 299x299.
 
-```
+{% include codeHeader.html %}
+```sh
 vai_c_tensorflow2 -m ./vai_q_output/quantized.h5 -a /opt/vitis_ai/compiler/arch/DPUCADF8H/U200/arch.json -o ./vai_q_output -n inception_v3_tf2 --options '{"input_shape": "4,299,299,3"}'
 ```
 
