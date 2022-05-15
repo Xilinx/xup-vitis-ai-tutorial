@@ -9,6 +9,7 @@ In this lab you will use `inceptionv1` model and `imagenet` dataset with TensorF
 ## Launch Docker Container
 Open a terminal window and launch Docker Container.
 
+{% include codeHeader.html %}
 ```sh
 cd /home/ubuntu/Vitis-AI_1_4_1
 ./docker_run.sh xilinx/vitis-ai-cpu:1.4.1.978
@@ -20,6 +21,7 @@ The docker shell will start showing the following:
 
 Activate Conda Environment for TensorFlow in the docker window.
 
+{% include codeHeader.html %}
 ```sh
 conda activate vitis-ai-tensorflow
 ```
@@ -28,6 +30,7 @@ Note the root folder changes to `(vitis-ai-tensorflow) Vitis-AI /workspace>`.
 
 Source DPU IP (DPUCADF8H).
 
+{% include codeHeader.html %}
 ```sh
 source /workspace/setup/alveo/setup.sh DPUCADF8H
 ```
@@ -38,6 +41,7 @@ Download a minimal validation set for [Imagenet2012](http://www.image-net.org/ch
 
 > **Note:** User is responsible for the use of the downloaded content and compliance with any copyright licenses.
 
+{% include codeHeader.html %}
 ```sh
 python -m ck pull repo:ck-env
 python -m ck install package:imagenet-2012-val-min
@@ -51,6 +55,7 @@ We will use the pretrained `Inception-v1` network with the Tensorflow framework 
 
 Download the model source files.
 
+{% include codeHeader.html %}
 ```sh
 cd /workspace/models/AI-Model-Zoo/
 python3 downloader.py
@@ -68,6 +73,7 @@ Note `1` is for the board independent source files, `7` is for the U200 specific
 
 Type `1` and hit Enter to download the zip file (tf_inceptionv1_imagenet_224_224_3G_1.4.zip). Move the downloaded zip file in the `tf_inception_v1` example directory. Extract the downloaded file to get  the `inception_v1_tf` directory and associated files.
 
+{% include codeHeader.html %}
 ```sh
 mv tf_inceptionv1_imagenet_224_224_3G_1.4.zip /workspace/examples/DPUCADF8H/tf_inception_v1/
 cd /workspace/examples/DPUCADF8H/tf_inception_v1/
@@ -78,6 +84,7 @@ The `tf_inceptionv1_imagenet_224_224_3G_1.4` will be created with its source fil
 
 Copy the unquantized model file.
 
+{% include codeHeader.html %}
 ```sh
 cp tf_inceptionv1_imagenet_224_224_3G_1.4/float/inception_v1_inference.pb .
 ```
@@ -88,6 +95,7 @@ The `inception_v1_inference.pb` is the unquantized Tensorflow trained model with
 
 Inspect the Tensorflow model to get input and output node(s), and input node shape.
 
+{% include codeHeader.html %}
 ```sh
 ./inspect_tf_model.sh inception_v1_inference.pb
 ```
@@ -111,6 +119,7 @@ The quantizer will generate scaling parameters for quantizing `float` to `INT8`.
 
 Execute the following command which invokes `vai_q_tensorflow` quantizer program with several input parameters.
 
+{% include codeHeader.html %}
 ```sh
 vai_q_tensorflow quantize --input_frozen_graph inception_v1_inference.pb --input_nodes input --output_nodes InceptionV1/Logits/Predictions/Reshape_1 --input_fn utils.input_fn_inception_v1_tf --input_shapes ?,224,224,3 --calib_iter 50
 ```
@@ -137,6 +146,7 @@ In this step, the network graph, xmodel file, `tf_inception_v1_compiled.xmodel` 
 
 Execute the following command which invokes `vai_c_tensorflow` compiler with several input parameters
 
+{% include codeHeader.html %}
 ```sh
 vai_c_tensorflow --arch /opt/vitis_ai/compiler/arch/DPUCADF8H/U200/arch.json --frozen_pb quantize_results/quantize_eval_model.pb --output_dir out --net_name tf_inception_v1_compiled --options '{"input_shape": "4,224,224,3"}'
 ```
@@ -160,6 +170,7 @@ In the current directory there is a `src` folder with source files which will be
 
 *Compile the executable*
 
+{% include codeHeader.html %}
 ```sh
 ./build.sh
 ```
@@ -170,6 +181,7 @@ Run the compiled application using the images downloaded into the `~/CK-TOOLS` d
 
 *Run*
 
+{% include codeHeader.html %}
 ```sh
 ./inception_example ./out/tf_inception_v1_compiled.xmodel ~/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min
 ```
@@ -205,6 +217,7 @@ top[4] prob = 0.035242  name = bald eagle, American eagle, Haliaeetus leucocepha
 
 The top five priorities are identified for each image. The names it displays comes from `words.txt` provided in the repository directory. Its offset is provided in `val.txt` under the `~/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min` downloaded dataset. Execute the following command to see the label number for the `ILSVRC2012_val_00000498.JPEG`:
 
+{% include codeHeader.html %}
 ```sh
 cat ~/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min/val.txt | grep 00000498  
 ```

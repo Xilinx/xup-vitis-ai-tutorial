@@ -10,6 +10,7 @@ In this lab you will use `inceptionv3` model and `imagenet` dataset with TensorF
 
 Open a terminal window and launch Docker Container.
 
+{% include codeHeader.html %}
 ```sh
 cd /home/ubuntu/Vitis-AI_1_4_1
 ./docker_run.sh xilinx/vitis-ai-cpu:1.4.1.978
@@ -21,6 +22,7 @@ The docker shell will start showing the following:
 
 Activate Conda Environment for TensorFlow in the docker window.
 
+{% include codeHeader.html %}
 ```sh
 conda activate vitis-ai-tensorflow2
 ```
@@ -29,6 +31,7 @@ Note the root folder changes to `(vitis-ai-tensorflow2) Vitis-AI /workspace>`.
 
 Source DPU IP (DPUCADF8H)
 
+{% include codeHeader.html %}
 ```sh
 source /workspace/setup/alveo/setup.sh DPUCADF8H
 ```
@@ -39,6 +42,7 @@ Download a minimal validation set for [Imagenet2012](http://www.image-net.org/ch
 
 > **Note:** User is responsible for the use of the downloaded content and compliance with any copyright licenses.
 
+{% include codeHeader.html %}
 ```sh
 python -m ck pull repo:ck-env
 python -m ck install package:imagenet-2012-val-min
@@ -52,6 +56,7 @@ We will use the pretrained `Inception-v3` network with the TensorFlow2 framework
 
 Download the model source files.
 
+{% include codeHeader.html %}
 ```sh
 cd /workspace/models/AI-Model-Zoo/
 python3 downloader.py
@@ -69,6 +74,7 @@ Type `1` and hit Enter to download the zip file (tf2_inceptionv3_imagenet_299_29
 
 Create a working directory called `tf2_inceptionv3` under the `workspace` directory. Move the downloaded zip file in the `tf2_inceptionv3` directory. Extract the downloaded file to get `inception_v3_tf` directory and its associated files.
 
+{% include codeHeader.html %}
 ```sh
 mkdir /workspace/tf2_inceptionv3
 mv tf2_inceptionv3_imagenet_299_299_11.5G_1.4.zip /workspace/tf2_inceptionv3/.
@@ -80,6 +86,7 @@ The `tf2_inceptionv3_imagenet_299_299_11.5G_1.4` directory will be created havin
 
 Note the directory structure and the files under them.
 
+{% include codeHeader.html %}
 ```sh
 tf2_inceptionv3_imagenet_299_299_11.5G_1.4
 ├── code
@@ -120,6 +127,7 @@ The quantizer will generate scaling parameters for quantizing `float` to `INT8`.
 
 Execute the following commands which changes to the working (model) directory, creates an output directory (`via_q_output`), invokes Python to quantize the model with several input parameters.
 
+{% include codeHeader.html %}
 ```sh
 cd tf2_inceptionv3_imagenet_299_299_11.5G_1.4
 mkdir vai_q_output
@@ -146,7 +154,8 @@ In this step, the network graph, xmodel file, `inception_v3_tf2.xmodel` will be 
 
 Execute the following command which invokes `vai_c_tensorflow2` compiler with several input parameters. Note the extra option is used to tell the compiler to use batch size of 4 and the image size of 299x299.
 
-```
+{% include codeHeader.html %}
+```sh
 vai_c_tensorflow2 -m ./vai_q_output/quantized.h5 -a /opt/vitis_ai/compiler/arch/DPUCADF8H/U200/arch.json -o ./vai_q_output -n inception_v3_tf2 --options '{"input_shape": "4,299,299,3"}'
 ```
 
@@ -166,6 +175,7 @@ This will also take about 8 minutes.
 
 The `inception_v3_tf2.xmodel` is the compiled model for the *DPUCADF8H* DPU. Copy the necessary source files directory (`src`), a shell script to build the project (`build.sh`), and `words.txt` which describes various objects labels from the example directory provided as part of the repository. Finally, build the project.
 
+{% include codeHeader.html %}
 ```sh
 cp -r ../../examples/DPUCADF8H/tf_inception_v3/* .
 ./build.sh
@@ -177,6 +187,7 @@ Run the compiled application using the images downloaded into the `~/CK-TOOLS` d
 
 *Run*
 
+{% include codeHeader.html %}
 ```sh
 ./inception_example ./vai_q_output/inception_v3_tf2.xmodel ~/CK-TOOLS/dataset-imagenet-ilsvrc2012-val-min
 ```

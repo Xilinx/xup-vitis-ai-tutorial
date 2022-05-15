@@ -14,6 +14,7 @@ We will use the pretrained `Inception-v1` network with the Caffe framework from 
 
 Download the model source files.
 
+{% include codeHeader.html %}
 ```sh
 cd /home/ubuntu/Vitis-AI_1_4_1/models/AI-Model-Zoo/
 python3 downloader.py
@@ -27,6 +28,7 @@ Type `1` and hit Enter to download the zip file (cf_inceptionv1_imagenet_224_224
 
 Create a working directory called `cf_inceptionv1` under the `workspace` directory. Move the downloaded zip file in the `cf_inceptionv1` directory. Unzip the downloaded file to get `cf_inceptionv1_imagenet_224_224_3.16G_1.4` directory and associated files. Change to the unzipped directory.
 
+{% include codeHeader.html %}
 ```sh
 mkdir /home/ubuntu/Vitis-AI_1_4_1/cf_inceptionv1
 mv cf_inceptionv1_imagenet_224_224_3.16G_1.4.zip /home/ubuntu/Vitis-AI_1_4_1/cf_inceptionv1/.
@@ -101,6 +103,7 @@ Save the changes and close the file.
 
 Open another terminal window and Launch Docker Container.
 
+{% include codeHeader.html %}
 ```sh
 cd /home/ubuntu/Vitis-AI_1_4_1
 ./docker_run.sh xilinx/vitis-ai-cpu:1.4.1.978
@@ -111,6 +114,7 @@ The docker shell will start showing the following:
 
 Activate Conda Environment.
 
+{% include codeHeader.html %}
 ```sh
 conda activate vitis-ai-caffe
 ```
@@ -119,12 +123,14 @@ Note the root folder changes to `(vitis-ai-caffe) Vitis-AI /workspace>`.
 
 DPU IP selection.
 
+{% include codeHeader.html %}
 ```sh
 source /workspace/setup/alveo/setup.sh DPUCADF8H
 ```
 
 Download a minimal validation set for [Imagenet2012](http://www.image-net.org/challenges/LSVRC/2012) using [Collective Knowledge (CK)](https://github.com/ctuning). Create a local `image` directory. Copy the `val.txt` and image files into the `image` directory using the following commands:
 
+{% include codeHeader.html %}
 ```sh
 cd /workspace/cf_inceptionv1/cf_inceptionv1_imagenet_224_224_3.16G_1.4
 mkdir image
@@ -143,6 +149,7 @@ To deploy a Caffe model on the FPGA, it needs to be quantized and compiled.
 
 Make sure that you are at the `/workspace/cf_inceptionv1/cf_inceptionv1_imagenet_224_224_3.16G_1.4/code/test` directory. Run the following command to run the quantizer.
 
+{% include codeHeader.html %}
 ```sh
 cd /workspace/cf_inceptionv1/cf_inceptionv1_imagenet_224_224_3.16G_1.4/code/test
 source quantize.sh
@@ -150,7 +157,8 @@ source quantize.sh
 
 The following command will be executed:
 
-```
+{% include codeHeader.html %}
+```sh
 vai_q_caffe quantize --model $MODEL_PATH --weights $WEIGHT_PATH --keep_fixed_neuron --calib_iter 16
 ```
 
@@ -179,7 +187,8 @@ In this step, the network graph, xmodel file, `inceptionv1.xmodel` along with `m
 
 Execute the following command which invokes `vai_c_caffe` compiler with several input parameters.
 
-```
+{% include codeHeader.html %}
+```sh
 vai_c_caffe -p quantize_results/deploy.prototxt -c quantize_results/deploy.caffemodel -a /opt/vitis_ai/compiler/arch/DPUCADF8H/U200/arch.json -o vai_c_output_AWS -n inceptionv1 --options '{"input_shape":"4,3,224,224"}'
 ```    
 
@@ -196,6 +205,7 @@ vai_c_caffe -p quantize_results/deploy.prototxt -c quantize_results/deploy.caffe
 
 The `inceptionv1.xmodel` is the compiled model for the *DPUCADF8H* DPU. Copy the necessary source files directory (`src`), a shell script to build the project (`build.sh`), and `words.txt` which describes various objects labels from the example directory provided as part of the repository. Finally, build the project.
 
+{% include codeHeader.html %}
 ```sh
 cp -r /workspace/examples/DPUCADF8H/tf_inception_v1/* .
 ./build.sh
@@ -206,6 +216,7 @@ Run the compiled application using the images you downloaded into the `image` di
 
 *Run*
 
+{% include codeHeader.html %}
 ```sh
 ./inception_example ./vai_c_output_AWS/inceptionv1.xmodel ../../image/
 ```
