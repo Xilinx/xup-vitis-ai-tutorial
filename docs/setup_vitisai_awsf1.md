@@ -14,6 +14,7 @@ Since the remote desktop capability is provided in the instance, start a RDP/DCV
 
 #### Disable Kernel Auto-Upgrade
 
+{% include codeHeader.html %}
 ```sh
 cd
 sudo sed -i 's/1/0/g' /etc/apt/apt.conf.d/20auto-upgrades
@@ -21,6 +22,7 @@ sudo sed -i 's/1/0/g' /etc/apt/apt.conf.d/20auto-upgrades
 
 #### Update Ubuntu packages list, and upgrade existing packages
 
+{% include codeHeader.html %}
 ```sh
 sudo apt-get update
 sudo apt-get upgrade
@@ -29,6 +31,7 @@ sudo apt-get upgrade
 
 #### Install AWS FPGA Management library and Xilinx XRT
 
+{% include codeHeader.html %}
 ```sh
 cd /home/ubuntu
 git clone https://github.com/Xilinx/XRT.git -b 2021.1
@@ -50,6 +53,7 @@ cd
 
 #### Install XRM
 
+{% include codeHeader.html %}
 ```sh
 wget https://www.xilinx.com/bin/public/openDownload?filename=xrm_202110.1.2.1539_18.04-x86_64.deb -O xrm.deb
 sudo apt install ./xrm.deb
@@ -59,6 +63,7 @@ sudo apt install ./xrm.deb
 
 You will use `DPUCADF8H` DPU. Find the DPU naming information [here](https://github.com/Xilinx/Vitis-AI/blob/master/docs/learn/dpu_naming.md).
 
+{% include codeHeader.html %}
 ```sh
 wget https://www.xilinx.com/bin/public/openDownload?filename=dpu-aws-1.4.0.xclbin -O dpu-aws.xclbin
 sudo mkdir -p /opt/xilinx/overlaybins/DPUCADF8H
@@ -70,6 +75,7 @@ sudo chmod -R a+rx /opt/xilinx/overlaybins/DPUCADF8H
 
 You will run the Vitis-AI toolchain in the docker image.
 
+{% include codeHeader.html %}
 ```sh
 cd
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -83,12 +89,14 @@ Logout and start the RDP session again.
 
 #### Install `gedit` program
 
+{% include codeHeader.html %}
 ```sh
 sudo apt install gedit
 ```
 
 #### Clone Vitis-AI and update the DPU related `setup.sh` file
 
+{% include codeHeader.html %}
 ```sh
 cd
 git clone https://github.com/Xilinx/Vitis-AI.git -b1.4.1 Vitis-AI_1_4_1
@@ -98,18 +106,21 @@ cd Vitis-AI_1_4_1
 
 Update `setup.sh` file content under Vitis-AI_1_4_1/setup/alveo directory to define `aws` as the target board.
 
+{% include codeHeader.html %}
 ```sh
 gedit setup/alveo/setup.sh
 ```
 
 Add `aws` at the end of line 42 which defines available platforms so it reads like:
 
+{% include codeHeader.html %}
 ```sh
 PLATFORMS="u50_ u50lv_ u200_ u250_ u280_ aws"
 ```
 
 Add following lines at line number `94` to load appropriate xclbin binary when *DPUCADF8H* is the target DPU.
 
+{% include codeHeader.html %}
 ```sh
 elif [ "${platform}" = "aws" ]; then
   export XCLBIN_PATH=/opt/xilinx/overlaybins/DPUCADF8H

@@ -10,6 +10,7 @@ In the following steps you will clone the `Vitis-AI-Tutorials` Git repository in
 
 Open a new terminal window.
 
+{% include codeHeader.html %}
 ```sh
 cd
 git clone https://github.com/Xilinx/Vitis-AI-Tutorials.git
@@ -32,6 +33,7 @@ The edited file content should look like:
 
 Edit the `compile.sh` file to add `aws` as the target machine and define the target architecture's json file. Note that AWS F1 has the similar FPGA as Alveo U200 board. Add following lines before the `else` section:
 
+{% include codeHeader.html %}
 ```sh
 elif [ $1 = aws ]; then
       ARCH=/opt/vitis_ai/compiler/arch/DPUCADF8H/U200/arch.json
@@ -59,6 +61,7 @@ ap.add_argument('-t', '--target',     type=str,  default='aws', choices=['aws'],
 
 Open another terminal window and Launch Docker Container `2.0.0.1103` that has the updated compiler for the PyTorch. The compiler in the `1.4.1.978` container has a bug and does not produce the correct result.
 
+{% include codeHeader.html %}
 ```sh
 cd
 cd Vitis-AI_1_4_1
@@ -67,6 +70,7 @@ cd Vitis-AI_1_4_1
 
 Activate Conda Environment.
 
+{% include codeHeader.html %}
 ```sh
 conda activate vitis-ai-pytorch
 ```
@@ -75,6 +79,7 @@ conda activate vitis-ai-pytorch
 
 In the docker window, make sure the current directory is `/workspace/09-mnist_pt/files` Train, quantize, and compile the model using the `run_all.sh` script.
 
+{% include codeHeader.html %}
 ```sh
 cd /workspace/09-mnist_pyt/files
 source run_all.sh
@@ -87,6 +92,7 @@ Note that the shell script will go through three stages of training (Epoch): wri
 
 Open another terminal window and Launch Docker Container.
 
+{% include codeHeader.html %}
 ```sh
 cd /home/ubuntu/Vitis-AI_1_4_1
 ./docker_run.sh xilinx/vitis-ai-cpu:1.4.1.978
@@ -94,6 +100,7 @@ cd /home/ubuntu/Vitis-AI_1_4_1
 
 Activate Conda Environment and setup DPUCADF8H as DPU.
 
+{% include codeHeader.html %}
 ```sh
 conda activate vitis-ai-pytorch
 source /workspace/setup/alveo/setup.sh DPUCADF8H
@@ -103,6 +110,7 @@ source /workspace/setup/alveo/setup.sh DPUCADF8H
 
 Run the application by executing the following two commands:
 
+{% include codeHeader.html %}
 ```sh
 cd /workspace/09-mnist_pyt/files/build/target_aws
 /usr/bin/python3 app_mt.py -m CNN_aws.xmodel
