@@ -9,7 +9,7 @@ layout: default
 | Title | YouTube Link | PDF Link |
 | --- | --- | ---- |
 | Vitis AI Introduction | [![alt text](assets/images/youtube.png) Vitis AI Introduction](https://www.youtube.com/watch?v=D1xepeBiJfo&t=20s) | [![alt text](images/pdf.png)]() |
-| Supported ML Frameworks | [![alt text](assets/images/youtube.png) Supported ML Frameworks]() | [![alt text](images/pdf.png)]() |
+| Vitis AI Supported ML Frameworks | [![alt text](assets/images/youtube.png) Vitis AI Supported ML Frameworks](https://youtu.be/tDE-fBL5U4k) | [![alt text](images/pdf.png)]() |
 | Deep Learning Processor Unit | [![alt text](assets/images/youtube.png) Deep Learning Processor Unit]() | [![alt text](images/pdf.png)]() |
 | Vitis AI Optimizer | [![alt text](assets/images/youtube.png) Vitis AI Optimizer]() | [![alt text](images/pdf.png)]() |
 | Vitis AI Quantizer | [![alt text](assets/images/youtube.png) Vitis AI Quantizer]() | [![alt text](images/pdf.png)]() |
