@@ -6,9 +6,9 @@ layout: default
 
 1. [Vitis AI](https://www.xilinx.com/products/design-tools/vitis/vitis-ai.html)
 
-1. [Vitis-AI repository](https://github.com/Xilinx/Vitis-AI)
+1. [Vitis AI repository](https://github.com/Xilinx/Vitis-AI)
 
-1. [Get Started with Vitis-AI](https://www.xilinx.com/developer/products/vitis-ai.html)
+1. [Get Started with Vitis AI](https://www.xilinx.com/developer/products/vitis-ai.html)
 
 1. [Vitis AI Optimizer User Guide](https://docs.xilinx.com/r/en-US/ug1333-ai-optimizer)
 
