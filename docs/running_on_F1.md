@@ -2,14 +2,6 @@
 layout: default
 ---
 
-{% for item in site.data.copyfunction.docs}
-<h1>{{ item.title }}</h1>
-<p>{{ item.content }}</p>
-'''sh
-{{ item.code }}
-'''
-
-
 # Running a pre-built example on Amazon AWS F1
 
 In this lab you will use a pre-built TensorFlow framework supported model to validate installation on the F1 instance that has a Xilinx FPGA board.

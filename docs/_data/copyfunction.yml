@@ -1,13 +1,3 @@
-docs_list_title: copyfunction
-docs:
 
-- title: Running a pre-built example on Amazon AWS F1
-  contet: "In this lab you will use a pre-built TensorFlow framework supported model to validate installation on the F1 instance that has a Xilinx FPGA board.
-          You should have an instance with the docker image installed and Vitis-AI 1.4.1 Git repository cloned. If not done, then refer to [AWS_README](./setup_vitisai_awsf1.md).
-          Open a terminal window after logging in into the instance.
-          Execute the following commands to download the U200 specific pre-compiled files:
-          You can download model files (board specific pre-compiled or board independent source files) to run the available `downloader.py` located in `Vitis-AI_1_4_1/models/AI-Model-Zoo` directory."
-  code: cd /home/ubuntu/Vitis-AI_1_4_1/models/AI-Model-Zoo/
-        python3 downloader.py
 
 
