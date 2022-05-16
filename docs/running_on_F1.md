@@ -2,7 +2,13 @@
 layout: default
 ---
 
-{{"Now that we have verified that we can execute the application in hardware, we can explore first framework example." | prepend: "Test prepend: " }}
+{% for item in site.data.copyfunction.docs}
+<h1>{{ item.title }}</h1>
+<p>{{ item.content }}</p>
+'''sh
+{{ item.code }}
+'''
+
 
 # Running a pre-built example on Amazon AWS F1
 
