@@ -19,4 +19,4 @@ layout: default
 1. [AI Inference Acceleration](https://www.xilinx.com/applications/megatrends/machine-learning.html)
 
 ---------------------------------------
-<p align="center">Copyright&copy; 2022 Xilinx</p>
+<p class="copyright">Copyright&copy; 2022 Xilinx</p>

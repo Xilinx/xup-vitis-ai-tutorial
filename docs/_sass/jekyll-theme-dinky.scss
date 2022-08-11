@@ -1,5 +1,4 @@
 @import "rouge-github";
-@import "copy-code";
 @import url('https://fonts.googleapis.com/css?family=Arvo:400,700,400italic');
 
 /* MeyerWeb Reset */
@@ -101,6 +100,17 @@ h6 {
     margin: 36px 0 10px
 }
 
+img.logoimg {
+    display: block;
+    width: 120px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p.copyright{
+    text-align: center;
+}
+
 p,
 ul,
 ol,
@@ -133,26 +143,16 @@ h2 {
     font-size: 24px
 }
 
-    .you-container1 {
-        padding-bottom: 0px;
-        overflow: hidden;
-        padding-top: 0px;
-        position: relative;
-        width: 100%;
-        max-width: 560px;
-        aspect-ratio: 16/9;
-        height: auto;
-    }
-    .you-container2 {
-        position: relative;
-        width: 100%;
-        max-width: 560px;
-        aspect-ratio: 16/9;
-        height: auto;
-        padding-bottom: 0px;
-        overflow: hidden;
-        padding-top: 50px;
-    }
+.you-container {
+    padding-bottom: 10px;
+    overflow: hidden;
+    padding-top: 10px;
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    aspect-ratio: 16/9;
+    height: auto;
+}
 
 h3 {
     font-size: 18px
@@ -575,7 +575,7 @@ screen and (max-width: 1200px) {
         color: white;
         text-decoration: none;
         font-size: 18px;
-        padding: 8px 15px
+        padding: 2px 15px
     }
 
     nav ul ul a {

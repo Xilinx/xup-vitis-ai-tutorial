@@ -134,4 +134,4 @@ Known issues:
 1. Enter **exit** to close the session.
 
 ---------------------------------------
-<p align="center">Copyright&copy; 2022 Xilinx</p>
+<p class="copyright">Copyright&copy; 2022 Xilinx</p>

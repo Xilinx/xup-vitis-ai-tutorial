@@ -127,4 +127,4 @@ You may want to close the docker images by typing `exit` in the respective image
 - [Caffe Lab using InceptionV1](./cf_inceptionv1.md)
 
 ---------------------------------------
-<p align="center">Copyright&copy; 2022 Xilinx</p>
+<p class="copyright">Copyright&copy; 2022 Xilinx</p>

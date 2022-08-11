@@ -155,4 +155,4 @@ Now that we have verified that we can execute the application in hardware, we ca
 - [TensorFlow Lab using InceptionV1 model](./tf_inceptionv1.md).
 
 ---------------------------------------
-<p align="center">Copyright&copy; 2022 Xilinx</p>
+<p class="copyright">Copyright&copy; 2022 Xilinx</p>

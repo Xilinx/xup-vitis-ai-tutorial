@@ -231,4 +231,4 @@ You may want to close the docker image by typing `exit` in the image console.
 - [TensorFlow2 Lab using InceptionV3](./tf2_inceptionv3.md)
 
 ---------------------------------------
-<p align="center">Copyright&copy; 2022 Xilinx</p>
+<p class="copyright">Copyright&copy; 2022 Xilinx</p>

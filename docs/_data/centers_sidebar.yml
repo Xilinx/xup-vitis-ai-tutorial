@@ -1,0 +1,17 @@
+docs_list_title: centers_sidebar
+docs:
+
+- title: ETH Zurich
+  url: ethz.html
+  
+- title: UIUC
+  url: uiuc.html
+
+- title: NUS
+  url: nus.html
+
+- title: Paderborn
+  url: paderborn.html
+
+- title: UCLA
+  url: ucla.html

@@ -132,4 +132,4 @@ Save and close the file.
 - [Run pre-built example on F1](./running_on_F1.md)
 
 ---------------------------------------
-<p align="center">Copyright&copy; 2022 Xilinx</p>
+<p class="copyright">Copyright&copy; 2022 Xilinx</p>

@@ -230,4 +230,4 @@ You may want to close the docker image by typing `exit` in the image console.
 - [PyTorch lab using MNIST design example](./pt_mnist.md)
 
 ---------------------------------------
-<p align="center">Copyright&copy; 2022 Xilinx</p>
+<p class="copyright">Copyright&copy; 2022 Xilinx</p>

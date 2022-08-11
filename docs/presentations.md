@@ -16,4 +16,4 @@ layout: default
 | Vitis AI Compiler | [![alt text](assets/images/youtube.png) Vitis AI Compiler ](https://youtu.be/mPBv39wTrqs) | [![alt text](images/pdf.png)]() |
 
 ---------------------------------------
-<p align="center">Copyright&copy; 2022 Xilinx</p>
+<p class="copyright">Copyright&copy; 2022 Xilinx</p>
